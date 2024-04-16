@@ -10,7 +10,7 @@
  <br/>
 </h1>
 
-### Build Figma Plugins using [@marko/run](https://github.com/marko-js/run) {align=center}
+<h3 align="center">Build Figma plugins using <a href="https://github.com/marko-js/run">Marko Run</a></h3>
 
 ## How it Works
 
