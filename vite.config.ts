@@ -12,12 +12,13 @@ export default defineConfig({
   },
   root: "src",
   build: {
+    
     // Entry file for your project
     // rollupOptions: {
     //   input: path,
     // },
     lib: {
-      entry: "index.ts",
+      entry: "steps/inlineAssets.ts",
       // name: `index-bundle-code${fileName}`,
       // fileName: () => `${getLastSubstringUntilSlash(fileName)}`,
       formats: ["es"],

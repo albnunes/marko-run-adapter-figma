@@ -14,7 +14,7 @@ export function vitePluginPosthtml(options: ViteOp) {
 
   return {
     name: 'posthtml',
-    transform: (code, id) => (
+    transform: (code: string, id: string) => (
       filter(id)
         ? posthtml(options.plugins).process(code, options).then(handle)
         : null

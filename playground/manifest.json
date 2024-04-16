@@ -1,0 +1,27 @@
+{
+  "name": "CVA: Component Variance Authority",
+  "id": "1263599690315117047",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": {
+    "about/index": "/Users/albertonunes/Documents/work/marko-run-adapter-figma/playground/dist/about/index.html",
+    "dist/index": "/Users/albertonunes/Documents/work/marko-run-adapter-figma/playground/dist/index.html"
+  },
+  "networkAccess": {
+    "allowedDomains": [
+      "https://cva.design/",
+      "https://fonts.googleapis.com/",
+      "https://fonts.gstatic.com/",
+      "https://unpkg.com",
+      "https://www.chaijs.com/"
+    ],
+    "reasoning": "CVA queries the 'API' to verify the user's license."
+  },
+  "editorType": [
+    "figma"
+  ],
+  "permissions": [
+    "currentuser",
+    "teamlibrary"
+  ]
+}

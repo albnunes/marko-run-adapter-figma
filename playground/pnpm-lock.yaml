@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@marko-polo/run-adapter-figma':
+    specifier: ../
+    version: link:..
   '@marko/run-adapter-static':
     specifier: ^0.1.6
     version: 0.1.6(@marko/run@0.4.4)
@@ -16,6 +19,9 @@ devDependencies:
   '@marko/run':
     specifier: ^0.4.3
     version: 0.4.4(esbuild@0.19.12)(marko@5.33.15)
+  vite:
+    specifier: ^5.2.8
+    version: 5.2.8
 
 packages:
 

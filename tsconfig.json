@@ -2,10 +2,20 @@
 {
   "extends": "tsconfig-moon/tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+
     "types": [
       "vitest/importMeta"
-    ]
+    ],
+    "module": "ESNext",
+    "target": "ESNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "skipLibCheck": true
+
+
   },
-  "include": ["src/**/*", "tests/**/*", "types/**/*", "playground"]
+  "include": ["src/**/*"],
+  "exclude": ["src/lib/**/*", "src/plugins/**/*"]
 }

@@ -18,5 +18,5 @@ export interface StartPreviewOptions extends StartOptions {
 
 export interface FigmaAdapterOptions extends StaticAdapterOptions {
   // Options to pass to html-minifier-terser for minifying the HTML output.
-  htmlMinifierOptions?: HtmlMinifierOptions;
+  htmlMinifierOptions?: {};
 }
