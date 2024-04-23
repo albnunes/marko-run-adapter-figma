@@ -9,7 +9,7 @@ export interface StartOptions {
   envFile?: string;
 }
 
-export interface StartDevOptions extends StartOptions {}
+export interface StartDevOptions extends StartOptions { }
 
 export interface StartPreviewOptions extends StartOptions {
   dir: string;
@@ -19,5 +19,6 @@ export interface StartPreviewOptions extends StartOptions {
 export interface FigmaAdapterOptions extends StaticAdapterOptions {
   // Options to pass to html-minifier-terser for minifying the HTML output.
   htmlMinifierOptions?: {};
-  code?: {entryPoint: string}
+  code?: { entryPoint: string };
+  manifest?: string;
 }

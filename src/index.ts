@@ -78,7 +78,7 @@ export default function figmaAdapter(
       deleteEmptyFolders(targetDir);
 
       // Update Figma plugin manifest
-      const originalManifestPath = path.resolve(process.cwd(), "manifest.json");
+      const originalManifestPath = options.manifest? path.resolve(process.cwd(), options.manifest) : path.resolve(process.cwd(), "manifest.json");
       const jsFile = fs.readdirSync(path.resolve(process.cwd(), ".marko-run/figma-adapter")).filter(file => file.endsWith('.js'));
 
       if (fs.existsSync(originalManifestPath)) {
