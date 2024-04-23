@@ -8,6 +8,7 @@ import { listHtmlFiles } from "./steps/listHtmlFiles";
 import { inlineAssets } from "./steps/inlineAssets";
 import type { FigmaAdapterOptions } from './types';
 import { deleteEmptyFolders, deleteNonHtmlFiles, moveHtmlFiles } from "./steps/moveHtmlFiles";
+import { bundleFigmaCode } from "./steps/bundleJs";
 
 /**
  * Creates a Marko Run adapter for building Figma plugins with configurable options.
@@ -20,6 +21,7 @@ import { deleteEmptyFolders, deleteNonHtmlFiles, moveHtmlFiles } from "./steps/m
 export default function figmaAdapter(
   options: FigmaAdapterOptions = {}
 ): Adapter {
+
 
   const staticAdapter = createStaticAdapter();
 
@@ -34,13 +36,18 @@ export default function figmaAdapter(
       builtEntries: string[],
       sourceEntries: string[]
     ): Promise<void> {
+      
+      if (options.code?.entryPoint) {
+        bundleFigmaCode(path.resolve(process.cwd(), options.code?.entryPoint))
+      }
+
       await staticAdapter.buildEnd?.(
         resolvedConfig,
         routes,
         builtEntries,
         sourceEntries
       );
-      
+
       const outputDir = path.resolve(process.cwd(), resolvedConfig.build.outDir);
 
       // ui folder
@@ -72,6 +79,8 @@ export default function figmaAdapter(
 
       // Update Figma plugin manifest
       const originalManifestPath = path.resolve(process.cwd(), "manifest.json");
+      const jsFile = fs.readdirSync(path.resolve(process.cwd(), ".marko-run/figma-adapter")).filter(file => file.endsWith('.js'));
+
       if (fs.existsSync(originalManifestPath)) {
         // Read original manifest and prepare it for updates
         const manifest = JSON.parse(
@@ -112,6 +121,7 @@ export default function figmaAdapter(
           },
           {} as Record<string, string>
         );
+        manifest.main = path.resolve(process.cwd(), ".marko-run/figma-adapter", jsFile[0])
 
         await fs.promises.writeFile(
           originalManifestPath,
